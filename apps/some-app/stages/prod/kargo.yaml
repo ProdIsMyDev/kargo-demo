@@ -3,12 +3,12 @@ apiVersion: kargo.akuity.io/v1alpha1
 kind: Stage
 metadata:
   name: prod
-  namespace: sample-app
+  namespace: some-app
 spec:
   requestedFreight:
     - origin:
         kind: Warehouse
-        name: sample-app
+        name: some-app
       sources:
         stages:
           - uat
@@ -50,7 +50,7 @@ spec:
         - uses: argocd-update
           config:
             apps:
-              - name: sample-app-prod
+              - name: some-app-prod
                 sources:
                   - repoURL: https://github.com/ProdIsMyDev/kargo-demo.git
                     desiredCommitFromStep: commit
