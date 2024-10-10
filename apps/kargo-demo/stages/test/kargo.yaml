@@ -29,12 +29,12 @@ spec:
         - uses: kustomize-set-image
           as: update-image
           config:
-            path: ./src/base
+            path: ./src/apps/kargo-demo/base
             images:
               - image: public.ecr.aws/nginx/nginx
         - uses: kustomize-build
           config:
-            path: ./src/stages/test
+            path: ./src/apps/kargo-demo/stages/test
             outPath: ./out/manifests.yaml
         - uses: git-commit
           as: commit
@@ -53,4 +53,4 @@ spec:
                 sources:
                   - repoURL: https://github.com/ProdIsMyDev/kargo-demo.git
                     desiredCommitFromStep: commit
----
+# ---
