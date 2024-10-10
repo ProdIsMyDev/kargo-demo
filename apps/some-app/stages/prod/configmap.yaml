@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: kargo-demo-content
+  name: some-app-content
 data:
   index.html: |-
     <!DOCTYPE html>
@@ -12,6 +12,7 @@ data:
     <body>
 
     <h1>prod</h1>
+    some-app
 
     </body>
     </html>
