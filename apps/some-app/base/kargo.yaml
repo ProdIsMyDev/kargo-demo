@@ -3,19 +3,6 @@ kind: Project
 metadata:
   name: some-app
 ---
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: some-app-repo
-  namespace: some-app
-  labels:
-    kargo.akuity.io/cred-type: git
-stringData:
-  repoURL: ${GITOPS_REPO_URL}
-  username: ${GITHUB_USERNAME}
-  password: ${GITHUB_PAT}
----
 apiVersion: kargo.akuity.io/v1alpha1
 kind: Warehouse
 metadata:

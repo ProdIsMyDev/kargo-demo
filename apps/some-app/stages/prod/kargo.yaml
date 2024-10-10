@@ -17,7 +17,7 @@ spec:
       steps:
         - uses: git-clone
           config:
-            repoURL: ${GITOPS_REPO_URL}
+            repoURL: https://github.com/ProdIsMyDev/kargo-demo.git
             checkout:
               - branch: main
                 path: ./src
@@ -52,6 +52,6 @@ spec:
             apps:
               - name: sample-app-prod
                 sources:
-                  - repoURL: ${GITOPS_REPO_URL}
+                  - repoURL: https://github.com/ProdIsMyDev/kargo-demo.git
                     desiredCommitFromStep: commit
 ---
