@@ -1,0 +1,30 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Project
+metadata:
+  name: kargo-demo
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: kargo-demo-repo
+  namespace: kargo-demo
+  labels:
+    kargo.akuity.io/cred-type: git
+stringData:
+  repoURL: ${GITOPS_REPO_URL}
+  username: ${GITHUB_USERNAME}
+  password: ${GITHUB_PAT}
+---
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Warehouse
+metadata:
+  name: kargo-demo
+  namespace: kargo-demo
+spec:
+  subscriptions:
+    - image:
+        repoURL: public.ecr.aws/nginx/nginx
+        semverConstraint: ^1.26.0
+        discoveryLimit: 5
+---
