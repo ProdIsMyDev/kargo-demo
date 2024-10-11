@@ -35,7 +35,7 @@ spec:
         - uses: kustomize-build
           config:
             path: ./src/apps/some-app/stages/test
-            outPath: ./out/manifests.yaml
+            outPath: ./out/some-app-manifests.yaml
         - uses: git-commit
           as: commit
           config:
