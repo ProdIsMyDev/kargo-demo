@@ -35,7 +35,7 @@ spec:
         - uses: kustomize-build
           config:
             path: ./src/apps/kargo-demo/stages/test
-            outPath: ./out/manifests.yaml
+            outPath: ./out/kargo-demo-manifests.yaml
         - uses: git-commit
           as: commit
           config:
